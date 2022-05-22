@@ -1,5 +1,7 @@
 
-radio_emulator: arduino uno nano atmega328 or atmega168  based vw/audi/skoda/seat radio emulator, I made this to revers eng. on vwcdpic and improve arduino version of CDchanger
+#CD CHANGER EMULATOR
+
+arduino uno nano atmega328 or atmega168  based vw/audi/skoda/seat radio emulator, I made this to revers eng. on vwcdpic and improve arduino version of CDchanger
  it is designed to work with BK8000L bluetooth module diy kit using at commands
  
  
@@ -18,7 +20,7 @@ radio_emulator: arduino uno nano atmega328 or atmega168  based vw/audi/skoda/sea
 	PREV - PREV TRACK
 	NEXT - NEXT TRACK
  
-connectios:
+#Connectios:
 
 - DataOut -> arduino pin 12
 
@@ -32,7 +34,4 @@ connectios:
 
 - LED CON Status -> arduino pin 13
 
-CDC_emulator: arduino based cd changer emulator for vw/audi/skoda/seat radios, based on avr port of vwcdpic(see header of file for more info)
 
-
-vw_cd_changer_sniffer - sniffer for radio comunication
