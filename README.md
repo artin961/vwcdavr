@@ -1,29 +1,22 @@
 
-radio_emulator: arduino (ATMEGAX8 boards only) based vw/audi/skoda/seat radio emulator, I made this to revers eng. on vwcdpic and improve arduino version of CDchanger
-
- - emulate RADIO DataOut signal
- - receive and print CD changer responce to serial console
-
-serial output is 9600
-
-commands:
+radio_emulator: arduino uno nano atmega328 or atmega168  based vw/audi/skoda/seat radio emulator, I made this to revers eng. on vwcdpic and improve arduino version of CDchanger
+ it is designed to work with BK8000L bluetooth module diy kit using at commands
  
-- next track button       =
-- previous track button   -
-- next CD                 ]
-- previous CD             [
-- play/stop               p
-- CD1                     1
-- CD2                     2
-- CD3                     3
-- CD4                     4
-- CD5                     5
-- CD6                     6
-- seek forward            f
-- seek rewind             r
-- scan mode               s
-- shuffle mode            l
-- help                    h
+ 
+ The main idea is that changer is always in cd6 and changing disks are interpreted as buttons
+ I'm using it on 2006 POLO with its original radio RCD200 
+ You need to have BK8000l dev board or just ignore bluetooth and use it as line in only
+ 
+ radio buttons:
+	CD1 - PLAY_PAUSE or ANSWER CALL
+	CD2 - REJECT or HANGUP
+	CD3 - PLAY PAUSE
+	CD4 - PREV TRACK
+	CD5 - NEXT TRACK
+	CD6 - nothing, changer is always on cd6
+	MIX - pairing mode
+	PREV - PREV TRACK
+	NEXT - NEXT TRACK
  
 connectios:
 
@@ -33,13 +26,13 @@ connectios:
 
 - DataIn  -> arduino pin 4 
 
+- BK8000L reset -> arduino pin 5
+- BK8000L TX -> arduino rx
+- BK8000l RX -> arduino tx via 1k resistor
+
+- LED CON Status -> arduino pin 13
+
 CDC_emulator: arduino based cd changer emulator for vw/audi/skoda/seat radios, based on avr port of vwcdpic(see header of file for more info)
 
-current status (see readme inside dir):
-- tested with my old audi concert 1 radio
-- version for 2 8bit timers, has, but if it still works is questionable:
-- ARDUINO headphones support
-- ARDUINO headphones single button support
-- bluetooth support for modules with AT commands (ovc3860 based: XS3868, S3860M-S, BLK-MD-SPK-B), BK8000L - one way only, no feedback from module - TODO
 
 vw_cd_changer_sniffer - sniffer for radio comunication
